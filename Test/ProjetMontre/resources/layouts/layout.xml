@@ -1,7 +1,0 @@
-  
-<layout id="WatchFace">
-    <label id="Date"            x="center" y="center"    font="Graphics.FONT_XTINY"        justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE"  />
-    <label id="HoursAndMinutes" x="center" y="30%" font="Graphics.FONT_LARGE"              justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
-    <label id="DayOfTheWeek"    x="center" y="55%"    font="Graphics.FONT_XTINY"           justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
-    <label id="Battery"         x="30%" y="10%"    font="Graphics.FONT_XTINY"           justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_BLUE"  />
-</layout>
