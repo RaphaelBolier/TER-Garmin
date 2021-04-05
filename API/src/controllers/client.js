@@ -1,71 +1,75 @@
-const dbClient = require('../config/DBconfig');
+const dbClient = require("../config/DBconfig");
+const mongo = require('mongodb')
 
+dbClient.connect({ useNewUrlParser: true });
 
 const getAll = async () => {
+    try {
 
-    await dbClient.connect();
+        const db = dbClient.db("client");
+        const coll = db.collection("people");
 
-    const db = dbClient.db("client");
-    const coll = db.collection("people");
+        const querry = await coll.find({}).toArray();
 
-    const querry = await coll.find({}).toArray();
+        console.log(querry);
 
-    console.log(querry);
+    } catch (error) {
+        console.log(error.stack);
+    }
 
 }
 
-/* TODO 
-    Je dois tester si les fonctions si dessous fonctionnent bien avec notre base de donnees
-*/
-const createOne = async (document) => {
-    
-    await dbClient.connect();
+const createOne = async () => {
 
-    const db = dbClient.db("client");
-    const coll = db.collection("people");
-    
-    const p = await coll.insertOne(document, function (err, res) {
-        if (err) {
-            throw err;
-        }else {
-            console.log("document inserted successfully")
+    try {
+        const db = dbClient.db("client");
+        const coll = db.collection("people");
+
+        let personDocument = {
+            "name": { "first": "Paco", "last": "Lopez" },
+            "heartbeat": 76
         }
-    });
+
+        const p = await coll.insertOne(personDocument);
+
+    } catch (error) {
+        console.log(error.stack);
+    }
+
 }
+
 
 const deleteOne = async (id) => {
-    await dbClient.connect();
 
-    const db = dbClient.db("client");
-    const coll = db.collection("people");
+    try {
 
-    const myquerry = { _id: id};
 
-    const p = await coll.deleteOne(myquerry, function (err, obj) {
-        if (err) {
-            throw err;
-        }else {
-            console.log("document deleted successfully");
-        }
-    });
+        const db = dbClient.db("client");
+        const coll = db.collection("people");
+
+        const target = { _id: new mongo.ObjectId(id) };
+
+        const p = await coll.deleteOne(target);
+
+
+    } catch (error) {
+        console.log(error.stack);
+    }
+
 }
 
 const updateOne = async (id, document) => {
+
     await dbClient.connect();
 
     const db = dbClient.db("client");
     const coll = db.collection("people");
 
-    const myquerry = { _id: id};
+    const myquerry = { _id: new mongo.ObjectId(id) };
     var newValues = { $set: document };
 
-    const p = await coll.updateOne(myquerry, newValues, function (err, obj) {
-        if (err) {
-            throw err;
-        }else {
-            console.log("document updated successfully");
-        }
-    });
+    const p = await coll.updateOne(myquerry, newValues);
+
 }
 
 module.exports = {
