@@ -19,18 +19,13 @@ const getAll = async () => {
 
 }
 
-const createOne = async () => {
+const createOne = async (document) => {
 
     try {
         const db = dbClient.db("client");
         const coll = db.collection("people");
 
-        let personDocument = {
-            "name": { "first": "Paco", "last": "Lopez" },
-            "heartbeat": 76
-        }
-
-        const p = await coll.insertOne(personDocument);
+        const p = await coll.insertOne(document);
 
     } catch (error) {
         console.log(error.stack);
@@ -42,7 +37,6 @@ const createOne = async () => {
 const deleteOne = async (id) => {
 
     try {
-
 
         const db = dbClient.db("client");
         const coll = db.collection("people");
@@ -58,17 +52,21 @@ const deleteOne = async (id) => {
 
 }
 
-const updateOne = async (id, document) => {
+const updateOne = async (id,document) => {
+    try {
 
-    await dbClient.connect();
+        const db = dbClient.db("client");
+        const coll = db.collection("people");
 
-    const db = dbClient.db("client");
-    const coll = db.collection("people");
+        const myquerry = { _id: new mongo.ObjectId(id) };
 
-    const myquerry = { _id: new mongo.ObjectId(id) };
-    var newValues = { $set: document };
+        var newValues = { $set: document };
 
-    const p = await coll.updateOne(myquerry, newValues);
+        const p = await coll.updateOne(myquerry, newValues);
+
+    } catch (error) {
+        console.log(error.stack);
+    }
 
 }
 
