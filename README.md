@@ -1,9 +1,20 @@
-# TER-Garmin
+# TER : Older Safer with Garmin
 
-Garmin est un projet encadré par par Monsieur Gilles Menez porté sur l'utilité de la technologie Garmin dans son utilisation pour la sécurité des personnes agées.
+Context : Master project of M1 Miage for "TER" Teaching Unit
 
-C'est un projet étudiant composé des étudiants suivant : 
-- Rémi longin
+Students :
+- Rémi Longin
 - Raphaël Bolier
 - Guilhem Fabre--Sauterey
 - Corentin Garnier
+
+Advisor Professor :
+- Gilles Menez
+
+
+The subject : 
+
+Make a proof of concept of a Web plateform allowing to monitor physical activities / health values of elderly persons.
+In this context, we will use a Garmin watch as a sensor to try to evaluate frequency of specific interest (to elderly persons) movements.
+
+The main objectif is to provide to family (sons, daughters, ...) an idea of the mobility and health of their elderly parent.
