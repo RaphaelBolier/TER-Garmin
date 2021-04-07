@@ -1,18 +1,18 @@
 # TER : Older Safer with Garmin
 
-Context : Master project of M1 Miage for "TER" Teaching Unit
+##Context : Master project of M1 Miage for "TER" Teaching Unit
 
-Students :
+##Students :
 - Rémi Longin
 - Raphaël Bolier
 - Guilhem Fabre--Sauterey
 - Corentin Garnier
 
-Advisor Professor :
+##Advisor Professor :
 - Gilles Menez
 
 
-The subject : 
+##The subject : 
 
 Make a proof of concept of a Web plateform allowing to monitor
 physical activities / health values of remote elderly persons.
