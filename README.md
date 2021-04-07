@@ -39,3 +39,14 @@ data :
 
 The main objectif is to provide to family (sons, daughters, ...) an
 idea of the mobility and health of their elderly parent.
+
+# an idea of ?
+
+We get raw data .. ad we could "interpret them" to present them to the
+family ?
+
+A profil-based ? => faire  1000 pas à 90 ans et 70 ans c'est pas pareil 
+ca peut dependre aussi des habitudes de la personne (/historique)
+ca peut dependre aussi de la meteo (si il fait pas beau ? ca on peut
+le savoir avc l'integration de données d'une base)
+
