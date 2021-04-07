@@ -17,7 +17,7 @@ The subject :
 Make a proof of concept of a Web plateform allowing to monitor
 physical activities / health values of remote elderly persons.
 
-It is important to notice this "just" a research work !
+It is important to notice this is "just" a research work !
 
 ![remote](LeCoindeGM/sp1.png)
 
