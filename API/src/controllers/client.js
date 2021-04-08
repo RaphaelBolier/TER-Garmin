@@ -11,7 +11,7 @@ const getAll = async () => {
 
         const querry = await coll.find({}).toArray();
 
-        console.log(querry);
+        return querry;
 
     } catch (error) {
         console.log(error.stack);
