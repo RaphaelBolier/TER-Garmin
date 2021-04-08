@@ -19,6 +19,7 @@
                           <v-text-field
                             label="Email"
                             name="Email"
+                            :rules="[rules.email]"
                             type="text"
                             color="blue darken-1"
                           />
@@ -78,26 +79,33 @@
                         <h4 class="text-center grey--text mt-3">
                           C'est rapide et facile.
                         </h4>
-                        <v-form>
+                        <v-form ref="form" v-model="form" class="pa-4 pt-6">
                           <v-text-field
+                            v-model="prenom"
                             label="Prénom"
                             name="Name"
                             type="text"
                             color="blue darken-1"
+                            :rules="[rules.required]"
                           />
                           <v-text-field
+                            v-model="nom"
                             label="Nom"
                             name="Name"
                             type="text"
                             color="blue darken-1"
+                            :rules="[rules.required]"
                           />
                           <v-text-field
+                            v-model="telephone"
                             label="Téléphone"
                             name="Name"
                             type="text"
                             color="blue darken-1"
                           />
                           <v-text-field
+                            v-model="email"
+                            :rules="[rules.email]"
                             label="Email"
                             name="Email"
                             type="text"
@@ -105,6 +113,11 @@
                           />
 
                           <v-text-field
+                            v-model="password"
+                            :rules="[
+                             rules.password,
+                              rules.length(6)
+                            ]"
                             id="password"
                             label="Mot de passe"
                             name="password"
@@ -114,7 +127,12 @@
                         </v-form>
                       </v-card-text>
                       <div class="text-center mt-n5">
-                        <v-btn rounded color="blue darken-1" dark
+                        <v-btn
+                          rounded
+                          color="blue darken-1"
+                          :disabled="!form"
+                          :loading="isLoading"
+                          @click="createUser"
                           >Inscription</v-btn
                         >
                       </div>
@@ -134,9 +152,34 @@
 export default {
   data: () => ({
     step: 1,
+    rules: {
+      email: (v) =>
+        !!(v || "").match(/@/) || "Veuillez entrer une adresse email valide",
+      length: (len) => (v) =>
+        (v || "").length >= len ||
+        `Longueur de caractères non valable, obligatoire ${len}`,
+      password: (v) =>
+        !!(v || "").match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/) ||
+        "Le mot de passe doit contenir au moins 6 caracteres, une majuscule, une minuscule et un caractère numérique",
+      required: (v) => !!v || "Ce champ est requis",
+    },
+    email: undefined,
+    nom: undefined,
+    prenom: undefined,
+    password: undefined,
+    telephone: undefined,
+
+    body: {},
+    form: false,
+    isLoading: false,
   }),
   props: {
     source: String,
   },
+  methods: {
+    createUser: function(){
+      ""
+    }
+  }
 };
 </script>
