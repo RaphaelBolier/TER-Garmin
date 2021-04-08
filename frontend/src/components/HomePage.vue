@@ -25,10 +25,12 @@
                           />
 
                           <v-text-field
+                            :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
+                            @click:append="() => (value = !value)"
+                            :type="value ? 'password' : 'text'"
                             id="password"
                             label="Mot de passe"
                             name="password"
-                            type="password"
                             color="blue darken-1"
                           />
                         </v-form>
@@ -114,14 +116,13 @@
 
                           <v-text-field
                             v-model="password"
-                            :rules="[
-                             rules.password,
-                              rules.length(6)
-                            ]"
+                            :rules="[rules.password, rules.length(6)]"
                             id="password"
                             label="Mot de passe"
                             name="password"
-                            type="password"
+                            :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
+                            @click:append="() => (value = !value)"
+                            :type="value ? 'password' : 'text'"
                             color="blue darken-1"
                           />
                         </v-form>
@@ -168,7 +169,7 @@ export default {
     prenom: undefined,
     password: undefined,
     telephone: undefined,
-
+    value: true,
     body: {},
     form: false,
     isLoading: false,
@@ -177,9 +178,9 @@ export default {
     source: String,
   },
   methods: {
-    createUser: function(){
-      ""
-    }
-  }
+    createUser: function() {
+      "";
+    },
+  },
 };
 </script>
