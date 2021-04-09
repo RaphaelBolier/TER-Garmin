@@ -1,7 +1,3 @@
-const dbClient = require("../config/DBconfig");
-const mongo = require('mongodb')
-
-dbClient.connect({ useNewUrlParser: true });
 
 const getAll = async () => {
     try {
@@ -11,7 +7,7 @@ const getAll = async () => {
 
         const querry = await coll.find({}).toArray();
 
-        return querry;
+        console.log(querry);
 
     } catch (error) {
         console.log(error.stack);
