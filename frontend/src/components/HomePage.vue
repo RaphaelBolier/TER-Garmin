@@ -22,8 +22,8 @@
                             :rules="[rules.email]"
                             type="text"
                             color="blue darken-1"
+                            prepend-icon="mdi-email"
                           />
-
                           <v-text-field
                             :append-icon="value ? 'mdi-eye' : 'mdi-eye-off'"
                             @click:append="() => (value = !value)"
@@ -32,13 +32,16 @@
                             label="Mot de passe"
                             name="password"
                             color="blue darken-1"
+                            prepend-icon="mdi-lock"
                           />
                         </v-form>
                         <h3 class="text-center mt-4">Mot de passe oublié ?</h3>
                       </v-card-text>
                       <div class="text-center mt-3">
-                        <v-btn rounded color="blue darken-1" dark
-                          >Connexion</v-btn
+                        <v-btn rounded color="blue darken-1" dark>
+                          <router-link :to="'/Dashboard/'"
+                            >Connexion
+                          </router-link></v-btn
                         >
                       </div>
                     </v-col>
@@ -89,6 +92,7 @@
                             type="text"
                             color="blue darken-1"
                             :rules="[rules.required]"
+                             prepend-icon="mdi-account"
                           />
                           <v-text-field
                             v-model="nom"
@@ -97,6 +101,7 @@
                             type="text"
                             color="blue darken-1"
                             :rules="[rules.required]"
+                             prepend-icon="mdi-account"
                           />
                           <v-text-field
                             v-model="telephone"
@@ -104,6 +109,7 @@
                             name="Name"
                             type="text"
                             color="blue darken-1"
+                             prepend-icon="mdi-phone"
                           />
                           <v-text-field
                             v-model="email"
@@ -112,6 +118,7 @@
                             name="Email"
                             type="text"
                             color="blue darken-1"
+                            prepend-icon="mdi-email"
                           />
 
                           <v-text-field
@@ -124,6 +131,7 @@
                             @click:append="() => (value = !value)"
                             :type="value ? 'password' : 'text'"
                             color="blue darken-1"
+                            prepend-icon="mdi-lock"
                           />
                         </v-form>
                       </v-card-text>

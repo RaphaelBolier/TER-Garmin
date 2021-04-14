@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import NavBar from "../components/NavBar";
 import HomePage from "../components/HomePage";
-import About from "../components/About.vue";
+import About from "../components/About";
+import Dashboard from "../components/Dashboard/Dashboard"
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,11 @@ const routes = [
     ],
   },
   { path: "*", redirect: "/HomePage" },
+  {
+    path: "/Dashboard",
+    name: "Dashboard",
+    component: Dashboard,
+  },
 ];
 
 const router = new VueRouter({
